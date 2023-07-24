@@ -9,6 +9,25 @@
 </head>
 
 <body>
+  <script>
+    'use strict'; // förhindra att man kan ex deklarera variabler på fel sätt ..
+
+    // var och let kan uppdateras från consolen eller filen, de är globala variabler. 
+    // var - function scoped
+    var first = 'hanna'; // variable declaration
+
+    // let och const - block scoped
+    let age = 50;
+
+    // const kan inte uppdateras
+    const cool = true;
+
+    console.log(first); // function call statement
+
+    if (age > 10) {
+      console.log('Du är gammal')
+    }
+  </script>
 
 </body>
 

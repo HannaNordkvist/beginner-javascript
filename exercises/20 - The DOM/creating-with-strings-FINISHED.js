@@ -14,3 +14,6 @@ const myHTML = `
 const myFragment = document.createRange().createContextualFragment(myHTML);
 
 document.body.appendChild(myFragment);
+
+// XSS cross sight scripting - Kan hända om man inte säkrar upp.
+// Gås igenom i securityvideon

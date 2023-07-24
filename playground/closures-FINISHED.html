@@ -23,6 +23,8 @@
     // const innerFn = outer();
     // innerFn();
 
+
+    // Det innre scopet refererar till en variabel skapad i det yttre scopet
     function createGreeting(greeting = '') {
       const myGreet = greeting.toUpperCase();
       return function (name) {
