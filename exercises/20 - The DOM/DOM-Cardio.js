@@ -59,15 +59,37 @@ myDiv.appendChild(myImage);
 
 
 // with HTML string, make a div, with two paragraphs inside of it
-// put this div before the unordered list from above
+const myHTMLdiv = 
+`<div class="myDiv2">
+<p>one</p>
+<p>two</p>
+</div>`
 
-// --create range, eller insertAdjacentHTML('beforebegin', )
+// put this div before the unordered list from above
+const myUl = myDiv.querySelector('ul');
+console.log(myUl);
+myUl.insertAdjacentHTML('beforebegin', myHTMLdiv);
+// -----create range, eller insertAdjacentHTML('beforebegin', )
 
 // add a class to the second paragraph called warning
+const theDiv = myDiv.querySelector('.myDiv2');
+console.log(theDiv);
+theDiv.children[1].classList.add('warning');
+//theDiv.children[1].className('warning');
+
 // remove the first paragraph
+theDiv.firstElementChild.remove();
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
-
+function generatePlayerCard(name, age, height) {
+    const htmlReturn = `
+    <div class="playerCard">
+       <h2>${name} — ${age}</h2>
+       <p>They are ${height} and ${age} years old. In Dog years this person would be AGEINDOGYEARS. That would be a tall dog!</p>
+       </div>
+       `;
+       return htmlReturn;
+}
 // have that function return html that looks like this:
 // <div class="playerCard">
 //   <h2>NAME — AGE</h2>

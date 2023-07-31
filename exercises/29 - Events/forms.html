@@ -10,18 +10,26 @@
 
 <body>
   <div class="wrapper">
+    <a class="wes" href="https://wesbos.com">Wes bos link</a>
 
     <form name="signup">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" value="Wes Bos">
+      <input type="text" id="name" name="name" value="Hanna">
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" value="wesbos@gmail.com">
+      <input type="email" id="email" name="email" value="hanna.nordkvist@gmail.com">
       <input type="checkbox" id="agree" name="agree">
       <label for="agree">I agree to the terms and conditions</label>
       <hr>
       <button type="submit">Submit</button>
     </form>
   </div>
+
+  <!-- exempel på tillgänglighet: img taggen kan inte tabbas till för click 
+  den behöver i så fall ha en "role" som button eller läggas i en <button>-->
+  <img class="photo" tabindex="0" role="button" src="https://picsum.photos/200" alt="en bild på random motiv">
+
+  <!-- om man använder en div som button - GÖR INTE DET - använd tabindex   -->
+  <div class="phototwo" role="button" tabindex="0">bild_aksjks</div>
   <script src="./forms.js"></script>
 </body>
 
