@@ -26,13 +26,19 @@
         shirts: 10,
         pants: 2
       },
-      sayHello: function (greeting = 'Hey') {
+      sayHello: function (greeting = 'Hey') { // detta är en metod.
         return `${greeting} ${this.name}`;
+        // this : till vänster om punkten. Arrow functions funkar inte med this
       }
     };
 
     wes.job = 'Web Developer';
     wes.age = 50;
+
+    console.log(wes.age);
+    console.log(wes['age']);
+    // [] kan användas för att nå propertien, 
+    //ex 'cool-dude' kan inte nås via consolen pga felaktigt format. Men funkar med['']
 
     console.log(wes.age);
     // const properyToCheck = prompt('What do you want to check?');
@@ -72,11 +78,24 @@
       last: 'bos'
     };
 
+    // EX PÅ ATT MAN INTE BARA KAN REFERERA TILL ETT OBJEKT FÖR ATT KOPIERA DET.
+    // I detta fall pekar person3 bara på ett annat objekt. 
     // const person3 = person1;
     // person3.first = 'Larry';
     // console.log(person3.first);
     // console.log(person1.first);
     // const person3 = { ...person1 };
+
+    // SPREAD ...  : ett sätt att kopiera epp objekt.
+    // problem : om en prop uppdateras för person4 kommer samma ske med person1
+    const person4 = { ...person1 };
+    // ÄLDRE SÄTT ATT KOPIERA, KAN FÖREKOMMA.
+    const person5 = Object.assign({}, person1);
+
+    // UTILITY LIBRARY : vanligt att använda. ex : lodash
+    // https://unpkg.com/lodash@4.17.15/lodash.js
+    // https://unpkg.com/lodash
+    // _.
     const person3 = _.cloneDeep(person1);
     person3.first = 'Larry';
 
@@ -94,9 +113,13 @@
       oyster: 15,
     };
 
+    // skapar ett objekt med ... (spread operatorn)och vanliga prop.
     const inventory = {
       ...meatInventory,
       ...veggieInventory,
+      // vid likadana prop i objekten som kopieras : senaste värdet gäller.
+      oyster: 23,
+      bacon: 1,
     };
 
     function doStuff(data) {
@@ -109,6 +132,10 @@
       console.log(data);
     }
 
+    // OM man skickar in en variabel (name1) så skckas bara värdet in, inte en referens
+    // OM man skickar in ett objekt (inventory)i en funktion och sedan modifierar det 
+    // så uppdateras även det externa objektet. INTE för boleans, nummer och strängar, 
+    // men för arrayer och objekter.
     doStuff2(inventory);
 
 

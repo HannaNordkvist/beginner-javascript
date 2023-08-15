@@ -16,16 +16,36 @@
 
     console.log(names[0]);
     console.log(names.length);
-    console.log(names[names.length - 1]);
+    console.log(names[names.length - 1]);  // ger det sista objektet i arrayen
 
-    names.push('lux');
+    // // Mutation Method. DO CHANGE THE ORIGINAL DATA. Denna ändrar ursprungsarrayen.
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // // ANYTIME YU WANT TO USE A MUTATION METHOD AND NOT MUTATE THE ORIGINAL ARRAY
+    // // WE NEED TO TAKE A COPY OF THE ARRAY:
+    // const numbersReversed = [...numbers].reverse();
+    // //const numbersBackwards = numbers.reverse(); // behövs inte skapas en ny variabel.
+    // numbers.reverse();
+    // console.log(numbers);
+    // // Immutable. THEY DO NOT CHANGE THE ORIGINAL DATA
+    // const pizzaSlice = numbers.slice(2, 4);
+    // console.log(pizzaSlice);
+
+
+    names.push('lux');  // lägg till längst bak i arrayen. MUTATES.
     console.log(names);
-    const names2 = [...names, 'lux'];
-    names.unshift('poppy');
+    const names2 = [...names, 'lux'];  // KOPIERA - IMMUTABLE
+    names.unshift('poppy');  // lägg till löngst fram i arrayen.
     console.log(names);
-    const names3 = ['poppy', ...names];
+    const names3 = ['poppy', ...names];  // IMMUTABLE
     console.log(names3);
 
+    // SLICE (IMMUTABLE) / SPLICE (MUTABLE)
+    const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    console.log(numbers2);
+    numbers2.splice(1, 5);  // tar bort 2 och tot 5 objekt (2-6)
+    console.log(numbers2);
+
+    // lägga till i arrayen
     const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
     const newBikes = [
       ...bikes.slice(0, 2),
@@ -33,6 +53,7 @@
       ...bikes.slice(2)
     ];
 
+    // ta bort ett objekt ur arrayen
     const newBikes2 = [
       ...newBikes.slice(0, 3),
       ...newBikes.slice(4)
@@ -50,7 +71,7 @@
 
     function deleteComment(id, comments) {
       // first find the index of the item in the array
-      const commentIndex = comments.findIndex(comment => comment.id === id);
+      const commentIndex = comments.findIndex(comment => comment.id === id);  // gör till en let, för att enkelt byta ut?!
       // make a new array without that item in it
       return [
         ...comments.slice(0, commentIndex),
@@ -59,6 +80,15 @@
       // return our new array
     }
 
+    // långa versionen
+    // const kaitIndex =names.findIndex(name => {
+    //   if ( name === 'kait') {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+
     const kaitIndex = names.findIndex(name => name === 'kait');
     const newNamesWithOutKait = [
       // get everything up to kait index
@@ -66,7 +96,7 @@
       // everything after Kait index
       ...names.slice(kaitIndex + 1)
     ];
-    console.log(newNamesWithOutKait);
+    const newNames999 = newNamesWithOutKait.flat(); // en metod man kan använda, flat
 
     // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 

@@ -18,10 +18,11 @@
 
     const myMap = new Map();
     // .set()
-    myMap.set('name', 'wes');
+    myMap.set('name', 'wes');  // (key, value)
     myMap.set(100, 'This is a number');
-    myMap.set(person1, 'Really Cool');
+    myMap.set(person1, 'Really Cool'); // key kan vara ett objekt
     console.log(myMap);
+    //console.log(myMap.get(person1));
 
     const score = 200;
     const prizes = new Map();
@@ -36,8 +37,18 @@
       const li = `<li>${points} - ${prize}</li>`;
       ul.insertAdjacentHTML('beforeend', li);
     }
+
+    // for (const prize of prizes) {
+    //   console.log(prize);
+    // }
+
+    // prizes.forEach(entry => {  // ger bara värdet
+    //   console.log(entry);
+    // })
+
     // .has()
     // .delete()
+
   </script>
 </body>
 

@@ -9,6 +9,55 @@
 </head>
 
 <body>
+  <script>
+    function buzzer() {
+      console.log('ENNGGGG');
+    }
+
+    // console.log('starting');
+    // setTimeout(buzzer, 500);  // callback funktion : we come back and call it at a later point in time
+    // console.log('finishing'); // the asyncronous nature of javascript, is to keep going.
+
+    setInterval(buzzer, 2000);
+
+    // kodar egen intervall :
+    function setImmediateInterval(funcToRun, ms) {
+      // right away call thar function
+      funcToRun();
+      // run a regular interval
+      return setInterval(funcToRun, ms);
+    }
+
+    //setImmediateInterval(buzzer, 200);
+    function sayHi() {
+      console.log('Hi!');
+    }
+
+    //setImmediateInterval(sayHi, 2000);
+
+    function destroy() {
+      document.body.innerHTML = `<p>DESTROYED</p>`
+    }
+
+    const bombTimer = setTimeout(destroy, 4000);
+
+    window.addEventListener('click', function () {
+      console.log('you clicked and saved the world');
+      // ??? how do i stop the timer
+      clearTimeout(bombTimer);  // STOP THE TIMER FROM RUNNING
+    });
+    // "window." kan inte alltid användas. Inte med node.js ... ?!?
+
+    const poopImoji = setInterval(function () {
+      console.log('bajsemoji');
+      console.log('hehehe');
+    }, 100);
+
+    setTimeout(function () {
+      clearInterval(poopImoji,);
+    }, 3000);
+
+  </script>
 
 </body>
 
